@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvan-pee <mvan-pee@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvpee <mvpee@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 10:35:25 by mvpee             #+#    #+#             */
-/*   Updated: 2023/11/15 08:57:23 by mvan-pee         ###   ########.fr       */
+/*   Updated: 2023/12/07 15:09:07 by mvpee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
 
-static int	total_strings(char const *s, char c)
+static int	total_strings(char const *s, char *str)
 {
 	int	i;
 	int	count;
@@ -23,34 +23,34 @@ static int	total_strings(char const *s, char c)
 	i = 0;
 	while (s[i])
 	{
-		while (s[i] && (s[i] == c))
+		while (s[i] && (ft_ischarin(s[i], str)))
 			i++;
 		if (s[i])
 			count++;
-		while (s[i] && !(s[i] == c))
+		while (s[i] && !(ft_ischarin(s[i], str)))
 			i++;
 	}
 	return (count);
 }
 
-static int	sep_len(char const *s, char c)
+static int	sep_len(char const *s, char *str)
 {
 	int	i;
 
 	i = 0;
-	while (s[i] && !(s[i] == c))
+	while (s[i] && !(ft_ischarin(s[i], str)))
 		i++;
 	return (i);
 }
 
-static char	*ft_word(char const *s, char c)
+static char	*ft_word(char const *s, char *str)
 {
 	int		len_word;
 	int		i;
 	char	*word;
 
 	i = 0;
-	len_word = sep_len(s, c);
+	len_word = sep_len(s, str);
 	word = (char *)malloc(sizeof(char) * (len_word + 1));
 	if (!word)
 		return (NULL);
@@ -71,29 +71,29 @@ static void	*free_memory(char **strings, int i)
 	return (NULL);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char *str)
 {
-	char	**strings;
+	char	**split;
 	int		i;
 
-	if (!s)
+	if (!s || !str)
 		return (NULL);
 	i = 0;
-	strings = (char **)malloc(sizeof(char *) * (total_strings(s, c) + 1));
-	if (!strings)
+	split = (char **)malloc(sizeof(char *) * (total_strings(s, str) + 1));
+	if (!split)
 		return (NULL);
 	while (*s)
 	{
-		if (*s != c)
+		if (!ft_ischarin(*s, str))
 		{
-			strings[i] = ft_word(s, c);
-			if (strings[i++] == NULL)
-				return (free_memory(strings, i));
-			s += sep_len(s, c);
+			split[i] = ft_word(s, str);
+			if (split[i++] == NULL)
+				return (free_memory(split, i));
+			s += sep_len(s, str);
 		}
 		if (*s)
 			s++;
 	}
-	strings[i] = NULL;
-	return (strings);
+	split[i] = NULL;
+	return (split);
 }

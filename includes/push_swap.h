@@ -6,7 +6,7 @@
 /*   By: mvpee <mvpee@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 13:39:59 by mvpee             #+#    #+#             */
-/*   Updated: 2023/11/22 14:08:31 by mvpee            ###   ########.fr       */
+/*   Updated: 2023/12/12 20:17:30 by mvpee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ typedef struct s_stack_node
 }						t_stack_node;
 
 //*** Handle input error ***
-int						arg_check(char **arg);
+int						*arg_check(char **arg);
 
 #endif

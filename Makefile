@@ -6,7 +6,7 @@
 #    By: mvpee <mvpee@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/22 13:41:01 by mvpee             #+#    #+#              #
-#    Updated: 2023/11/22 14:07:22 by mvpee            ###   ########.fr        #
+#    Updated: 2023/12/12 20:17:18 by mvpee            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,12 +15,14 @@ NAME = push_swap
 LIBFT = srcs/libft
 
 SRCS = 	srcs/push_swap/main.c \
-		srcs/push_swap/arg_check.c
+		srcs/push_swap/arg_check.c \
 
 OBJS = $(SRCS:.c=.o)
 
 CFLAGS = -Wall -Werror -Wextra -I$(LIBFT)
 LDFLAGS = -L$(LIBFT) -lft
+
+all: $(NAME)
 
 $(LIBFT)/libft.a:
 	$(MAKE) -C $(LIBFT)
@@ -31,8 +33,6 @@ $(NAME): $(OBJS) $(LIBFT)/libft.a
 %.o: %.c
 	gcc $(CFLAGS) -c $< -o $@
 
-all: $(NAME)
-
 clean:
 	$(MAKE) -C $(LIBFT) clean
 	rm -f $(OBJS)
@@ -42,5 +42,11 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+sort: all
+	./push_swap 1 4 56 1009 12938
+
+nsort: all
+	./push_swap 1 2 56 12938 1009 
 
 .PHONY: all clean fclean re

@@ -6,26 +6,34 @@
 /*   By: mvpee <mvpee@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 15:23:11 by mvpee             #+#    #+#             */
-/*   Updated: 2023/11/22 15:27:06 by mvpee            ###   ########.fr       */
+/*   Updated: 2023/12/07 14:51:04 by mvpee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
 
-void	ft_free_split(char **split)
+void	ft_free_split(unsigned int count, ...)
 {
-	int	i;
+	va_list	args;
+	void	***array;
+	int		i;
 
-	if (split)
+	va_start(args, count);
+	while (count--)
 	{
-		i = 0;
-		while (split[i])
+		array = va_arg(args, void ***);
+		if (*array)
 		{
-			free(split[i]);
-            split[i] = NULL;
-			i++;
+			i = 0;
+			while ((*array)[i])
+			{
+				free((*array)[i]);
+				(*array)[i] = NULL;
+				i++;
+			}
+			free(*array);
+			*array = NULL;
 		}
-		free(split);
-        split = NULL;
 	}
+	va_end(args);
 }

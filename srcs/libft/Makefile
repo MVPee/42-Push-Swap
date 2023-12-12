@@ -41,22 +41,24 @@ LIBFT_SRCS =	srcs/libft/ft_isalpha.c \
 				srcs/libft/ft_putchar_fd.c \
 				srcs/libft/ft_putendl_fd.c \
 				srcs/libft/ft_putnbr_fd.c \
-				srcs/libft/ft_lstnew_bonus.c \
-				srcs/libft/ft_lstadd_front_bonus.c \
-				srcs/libft/ft_lstsize_bonus.c \
-				srcs/libft/ft_lstlast_bonus.c \
-				srcs/libft/ft_lstadd_back_bonus.c \
-				srcs/libft/ft_lstdelone_bonus.c \
-				srcs/libft/ft_lstclear_bonus.c \
-				srcs/libft/ft_lstiter_bonus.c \
-				srcs/libft/ft_lstmap_bonus.c \
+				srcs/libft/ft_lstnew.c \
+				srcs/libft/ft_lstadd_front.c \
+				srcs/libft/ft_lstsize.c \
+				srcs/libft/ft_lstlast.c \
+				srcs/libft/ft_lstadd_back.c \
+				srcs/libft/ft_lstdelone.c \
+				srcs/libft/ft_lstclear.c \
+				srcs/libft/ft_lstiter.c \
+				srcs/libft/ft_lstmap.c \
 				srcs/libft/ft_splitdup.c \
 				srcs/libft/ft_splitlen.c \
 				srcs/libft/ft_read.c \
 				srcs/libft/ft_strjoin_free.c \
 				srcs/libft/ft_ischarin.c \
 				srcs/libft/ft_strcmp.c \
-				srcs/libft/ft_free_split.c
+				srcs/libft/ft_free_split.c \
+				srcs/libft/ft_free.c \
+				srcs/libft/ft_intlen.c
 
 GNL_SRCS = 		srcs/gnl/get_next_line.c
 

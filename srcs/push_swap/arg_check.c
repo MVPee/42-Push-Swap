@@ -6,7 +6,7 @@
 /*   By: mvpee <mvpee@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 14:06:01 by mvpee             #+#    #+#             */
-/*   Updated: 2023/11/22 15:29:53 by mvpee            ###   ########.fr       */
+/*   Updated: 2023/11/27 13:51:06 by mvpee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ static int	arg_check_repetition(char **arg)
 	return (0);
 }
 
-int	arg_check(char **arg)
+int	*arg_check(char **arg)
 {
 	int		i;
 	long	nb;
@@ -83,22 +83,22 @@ int	arg_check(char **arg)
 
 	array = (int *)malloc(sizeof(int) * ft_splitlen((const char **)arg));
 	if (!array)
-		return (1);
+		return (NULL);
 	if (arg_check_repetition(arg))
-		return (1);
+		return (NULL);
 	i = -1;
 	while (arg[++i])
 	{
 		if (arg_check_isnumber(arg[i]))
-			return (1);
+			return (NULL);
 		nb = ft_atol(arg[i]);
 		if (nb > 2147483647 || nb < -2147483648)
 		{
 			if (array)
 				free(array);
-			return (1);
+			return (NULL);
 		}
 		array[i] = nb;
 	}
-	return (0);
+	return (array);
 }
