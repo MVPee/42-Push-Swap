@@ -6,7 +6,7 @@
 /*   By: mvpee <mvpee@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 13:39:59 by mvpee             #+#    #+#             */
-/*   Updated: 2023/12/15 12:09:39 by mvpee            ###   ########.fr       */
+/*   Updated: 2023/12/15 13:37:52 by mvpee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,20 @@ int						*args_check(char **av, int *len);
 /* Init_stack_a with an array of int */
 t_list					*init_stack(int *array, int len);
 
-
 /* Sorts methode */
 void					ft_sort_three(t_list **a);
-void					ft_sort_four(t_list **a);
+void					ft_sort_four(t_list **a, t_list **b);
 void					ft_sort_five(t_list **a, t_list **b);
 void					ft_big_sort(t_list **a, t_list **b);
 
 /* Operations methode */
-//Swap
+// Swap
 void					sa(t_list **a);
 void					sb(t_list **b);
-//Rotate
+// Rotate
 void					ra(t_list **a);
 void					rra(t_list **a);
-//Push
+// Push
 void					pa(t_list **a, t_list **b);
 void					pb(t_list **a, t_list **b);
 

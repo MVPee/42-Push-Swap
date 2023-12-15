@@ -6,7 +6,7 @@
 /*   By: mvpee <mvpee@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:57:13 by mvpee             #+#    #+#             */
-/*   Updated: 2023/12/15 11:00:56 by mvpee            ###   ########.fr       */
+/*   Updated: 2023/12/15 13:44:59 by mvpee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	pa(t_list **a, t_list **b)
 
 void	pb(t_list **a, t_list **b)
 {
-	t_list *temp;
+	t_list	*temp;
 
 	if (*a == NULL)
 		return ;

@@ -6,7 +6,7 @@
 /*   By: mvpee <mvpee@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 14:06:01 by mvpee             #+#    #+#             */
-/*   Updated: 2023/12/15 13:11:12 by mvpee            ###   ########.fr       */
+/*   Updated: 2023/12/15 13:46:35 by mvpee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ int	*args_check(char **av, int *len)
 		return (NULL);
 	array = (int *)malloc(sizeof(int) * ft_splitlen((const char **)args));
 	if (!array)
-		return NULL;
+		return (NULL);
 	if (args_check_repetition(args))
 		return (ft_free(1, &array), ft_free_matrix(1, &args), NULL);
 	*len = -1;

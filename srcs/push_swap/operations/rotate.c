@@ -6,7 +6,7 @@
 /*   By: mvpee <mvpee@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:42:26 by mvpee             #+#    #+#             */
-/*   Updated: 2023/12/15 10:52:56 by mvpee            ###   ########.fr       */
+/*   Updated: 2023/12/15 13:44:34 by mvpee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ra(t_list **a)
 	*a = first->next;
 	first->next = NULL;
 	last->next = first;
-    ft_printf("ra\n");
+	ft_printf("ra\n");
 }
 
 void	rra(t_list **a)
@@ -47,5 +47,5 @@ void	rra(t_list **a)
 		last->next = *a;
 		*a = last;
 	}
-    ft_printf("rra\n");
+	ft_printf("rra\n");
 }

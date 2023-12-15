@@ -6,7 +6,7 @@
 /*   By: mvpee <mvpee@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 11:18:50 by mvpee             #+#    #+#             */
-/*   Updated: 2023/12/15 11:23:44 by mvpee            ###   ########.fr       */
+/*   Updated: 2023/12/15 13:44:01 by mvpee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 static void	move_smallest_to_b(t_list **a, t_list **b)
 {
-	int		smallest_index;
+	int		smallest;
 	int		size;
 	t_list	*current;
 	int		smallest_value;
 
-	smallest_index = 0;
+	smallest = 0;
 	size = 0;
 	current = *a;
 	smallest_value = (int)(intptr_t)(current->content);
@@ -28,15 +28,15 @@ static void	move_smallest_to_b(t_list **a, t_list **b)
 		if ((int)(intptr_t)(current->content) < smallest_value)
 		{
 			smallest_value = (int)(intptr_t)(current->content);
-			smallest_index = size;
+			smallest = size;
 		}
 		current = current->next;
 		size++;
 	}
-	while (smallest_index > 0)
+	while (smallest > 0)
 	{
 		ra(a);
-		smallest_index--;
+		smallest--;
 	}
 	pb(a, b);
 }
@@ -68,17 +68,7 @@ static void	insert_from_b_to_a(t_list **a, t_list **b)
 
 void	ft_sort_five(t_list **a, t_list **b)
 {
-	int	i;
-
-	i = 0;
-	while (i < 2)
-	{
-		move_smallest_to_b(a, b);
-		i++;
-	}
-	ft_sort_three(a);
-	while (ft_lstsize(*b) > 0)
-	{
-		insert_from_b_to_a(a, b);
-	}
+	move_smallest_to_b(a, b);
+	ft_sort_four(a, b);
+	pa(a, b);
 }

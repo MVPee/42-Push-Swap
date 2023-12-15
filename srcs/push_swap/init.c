@@ -6,7 +6,7 @@
 /*   By: mvpee <mvpee@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 09:38:37 by mvpee             #+#    #+#             */
-/*   Updated: 2023/12/15 13:19:19 by mvpee            ###   ########.fr       */
+/*   Updated: 2023/12/15 13:46:23 by mvpee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 t_list	*init_stack(int *array, int len)
 {
-	t_list *a = NULL;
-	t_list *new = NULL;
-	int i;
+	t_list	*a;
+	t_list	*new;
+	int		i;
 
+	a = NULL;
+	new = NULL;
 	i = 0;
 	while (i < len)
 	{

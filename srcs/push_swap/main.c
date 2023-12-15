@@ -6,7 +6,7 @@
 /*   By: mvpee <mvpee@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 13:42:15 by mvpee             #+#    #+#             */
-/*   Updated: 2023/12/15 13:29:14 by mvpee            ###   ########.fr       */
+/*   Updated: 2023/12/15 13:45:13 by mvpee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,30 +26,28 @@ static int	is_sorted(t_list *a)
 static void	ft_sort(t_list **a, t_list **b)
 {
 	(void)b;
-	if (ft_lstsize(*a) == 1)
-		return ;
-	else if (ft_lstsize(*a) == 2)
+	if (ft_lstsize(*a) == 2)
 		sa(a);
 	else if (ft_lstsize(*a) == 3)
 		ft_sort_three(a);
 	else if (ft_lstsize(*a) == 4)
-		ft_sort_four(a);
+		ft_sort_four(a, b);
 	else if (ft_lstsize(*a) == 5)
 		ft_sort_five(a, b);
-	// else
-	// 	ft_big_sort(a, b);
+	else
+		ft_big_sort(a, b);
 }
 
-static void list_clear(t_list **a)
+static void	list_clear(t_list **a)
 {
-    t_list *temp;
+	t_list	*temp;
 
-    while (*a)
-    {
-        temp = (*a)->next;
-        free(*a);
-        *a = temp;
-    }
+	while (*a)
+	{
+		temp = (*a)->next;
+		free(*a);
+		*a = temp;
+	}
 }
 
 int	main(int ac, char **av)

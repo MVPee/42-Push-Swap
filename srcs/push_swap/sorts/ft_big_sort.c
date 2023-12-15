@@ -6,15 +6,15 @@
 /*   By: mvpee <mvpee@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 11:19:20 by mvpee             #+#    #+#             */
-/*   Updated: 2023/12/15 11:25:08 by mvpee            ###   ########.fr       */
+/*   Updated: 2023/12/15 13:44:25 by mvpee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/push_swap.h"
 
-void ft_big_sort(t_list **a, t_list **b)
+void	ft_big_sort(t_list **a, t_list **b)
 {
-    (void)a;
-    (void)b;
-    return ;
+	(void)a;
+	(void)b;
+	return ;
 }
