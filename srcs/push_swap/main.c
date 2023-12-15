@@ -6,7 +6,7 @@
 /*   By: mvpee <mvpee@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 13:42:15 by mvpee             #+#    #+#             */
-/*   Updated: 2023/12/15 12:07:40 by mvpee            ###   ########.fr       */
+/*   Updated: 2023/12/15 13:29:14 by mvpee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,18 @@ static void	ft_sort(t_list **a, t_list **b)
 	// 	ft_big_sort(a, b);
 }
 
+static void list_clear(t_list **a)
+{
+    t_list *temp;
+
+    while (*a)
+    {
+        temp = (*a)->next;
+        free(*a);
+        *a = temp;
+    }
+}
+
 int	main(int ac, char **av)
 {
 	int		*array;
@@ -53,10 +65,14 @@ int	main(int ac, char **av)
 		return (1);
 	array = args_check(av + 1, &len);
 	if (!array)
-		return (ft_printf_fd(2, "Error\n"));
+		return (ft_printf_fd(2, "Error\n"), 1);
 	a = init_stack(array, len);
+	if (!a)
+		return (ft_free(1, &array), 1);
 	ft_free(1, &array);
 	if (!is_sorted(a))
 		ft_sort(&a, &b);
+	list_clear(&a);
+	list_clear(&b);
 	return (0);
 }
