@@ -6,7 +6,7 @@
 /*   By: mvpee <mvpee@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 13:42:15 by mvpee             #+#    #+#             */
-/*   Updated: 2023/12/15 13:45:13 by mvpee            ###   ########.fr       */
+/*   Updated: 2023/12/15 14:08:25 by mvpee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void	ft_sort(t_list **a, t_list **b)
 	else if (ft_lstsize(*a) == 5)
 		ft_sort_five(a, b);
 	else
-		ft_big_sort(a, b);
+		radix_sort(a, b);
 }
 
 static void	list_clear(t_list **a)

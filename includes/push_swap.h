@@ -6,7 +6,7 @@
 /*   By: mvpee <mvpee@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 13:39:59 by mvpee             #+#    #+#             */
-/*   Updated: 2023/12/15 13:37:52 by mvpee            ###   ########.fr       */
+/*   Updated: 2023/12/15 14:08:19 by mvpee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_list					*init_stack(int *array, int len);
 void					ft_sort_three(t_list **a);
 void					ft_sort_four(t_list **a, t_list **b);
 void					ft_sort_five(t_list **a, t_list **b);
-void					ft_big_sort(t_list **a, t_list **b);
+void					radix_sort(t_list **stack_a, t_list **stack_b);
 
 /* Operations methode */
 // Swap
