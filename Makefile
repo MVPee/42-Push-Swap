@@ -6,7 +6,7 @@
 #    By: mvpee <mvpee@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/22 13:41:01 by mvpee             #+#    #+#              #
-#    Updated: 2023/12/12 20:17:18 by mvpee            ###   ########.fr        #
+#    Updated: 2023/12/15 11:57:28 by mvpee            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,18 @@ LIBFT = srcs/libft
 
 SRCS = 	srcs/push_swap/main.c \
 		srcs/push_swap/arg_check.c \
+		srcs/push_swap/init.c \
+		srcs/push_swap/sorts/ft_sort_three.c \
+		srcs/push_swap/sorts/ft_sort_four.c \
+		srcs/push_swap/sorts/ft_sort_five.c \
+		srcs/push_swap/sorts/ft_big_sort.c \
+		srcs/push_swap/operations/swap.c \
+		srcs/push_swap/operations/rotate.c \
+		srcs/push_swap/operations/push.c
 
 OBJS = $(SRCS:.c=.o)
 
-CFLAGS = -Wall -Werror -Wextra -I$(LIBFT)
+CFLAGS = -I$(LIBFT) #-Wall -Werror -Wextra
 LDFLAGS = -L$(LIBFT) -lft
 
 all: $(NAME)

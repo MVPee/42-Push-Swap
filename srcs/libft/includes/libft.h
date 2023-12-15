@@ -6,7 +6,7 @@
 /*   By: mvpee <mvpee@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 08:54:15 by mvan-pee          #+#    #+#             */
-/*   Updated: 2023/12/12 20:07:19 by mvpee            ###   ########.fr       */
+/*   Updated: 2023/12/14 16:50:24 by mvpee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <stdarg.h>
 # include <stdint.h>
 # include <stdlib.h>
-# include <unistd.h> //for linux
+# include <unistd.h>
 
 // LIBFT
 typedef struct s_list
@@ -85,10 +85,8 @@ char				*ft_read(int fd);
 char				*ft_strjoin_free(char *s1, char *s2);
 int					ft_ischarin(char c, char *str);
 int					ft_strcmp(const char *s1, const char *s2);
-void				ft_free_split(unsigned int count, ...);
+void				ft_free_matrix(unsigned int count, ...);
 void				ft_free(unsigned int count, ...);
-
-size_t				ft_intlen(int *array);
 
 // PRINTF
 int					ft_printf(const char *format, ...);

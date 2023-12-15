@@ -1,5 +1,0 @@
-*.o
-.vscode
-main.c
-a.out
-libft.a

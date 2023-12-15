@@ -6,7 +6,7 @@
 /*   By: mvpee <mvpee@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 14:06:01 by mvpee             #+#    #+#             */
-/*   Updated: 2023/11/27 13:51:06 by mvpee            ###   ########.fr       */
+/*   Updated: 2023/12/15 12:09:49 by mvpee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,34 +39,34 @@ static long	ft_atol(const char *str)
 	return (num * isneg);
 }
 
-static int	arg_check_isnumber(char *arg)
+static int	args_check_isnumber(char *args)
 {
 	int	i;
 
 	i = 0;
-	if (arg[i] == '-')
+	if (args[i] == '-')
 		i++;
-	while (arg[i])
+	while (args[i])
 	{
-		if (!ft_isdigit(arg[i]))
+		if (!ft_isdigit(args[i]))
 			return (1);
 		i++;
 	}
 	return (0);
 }
 
-static int	arg_check_repetition(char **arg)
+static int	args_check_repetition(char **args)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (arg[i])
+	while (args[i])
 	{
 		j = i + 1;
-		while (arg[j])
+		while (args[j])
 		{
-			if (ft_strcmp(arg[i], arg[j]) == 0)
+			if (ft_strcmp(args[i], args[j]) == 0)
 				return (1);
 			j++;
 		}
@@ -75,30 +75,59 @@ static int	arg_check_repetition(char **arg)
 	return (0);
 }
 
-int	*arg_check(char **arg)
+static char	**create_args(char **av)
 {
+	char	*str;
+	char	*temp;
+	char	**args;
 	int		i;
+
+	str = ft_strdup(av[0]);
+	if (!str)
+		return (NULL);
+	i = 0;
+	while (av[++i])
+	{
+		temp = ft_strjoin(str, " ");
+		if (!temp)
+			return (ft_free(1, &str), NULL);
+		ft_free(1, &str);
+		str = temp;
+		temp = ft_strjoin(str, av[i]);
+		if (!temp)
+			return (ft_free(1, &str), NULL);
+		ft_free(1, &str);
+		str = temp;
+	}
+	args = ft_split(str, " ");
+	return (ft_free(1, &str), args);
+}
+
+int	*args_check(char **av, int *len)
+{
 	long	nb;
 	int		*array;
+	char	**args;
 
-	array = (int *)malloc(sizeof(int) * ft_splitlen((const char **)arg));
+	args = create_args(av);
+	if (!args)
+		return (NULL);
+	array = (int *)malloc(sizeof(int) * ft_splitlen((const char **)args));
 	if (!array)
-		return (NULL);
-	if (arg_check_repetition(arg))
-		return (NULL);
-	i = -1;
-	while (arg[++i])
+		return NULL;
+	if (args_check_repetition(args))
+		return (ft_free(1, &array), ft_free_matrix(1, &args), NULL);
+	*len = -1;
+	while (args[++(*len)])
 	{
-		if (arg_check_isnumber(arg[i]))
-			return (NULL);
-		nb = ft_atol(arg[i]);
+		if (args_check_isnumber(args[*len]))
+			return (ft_free(1, &array), ft_free_matrix(1, &args), NULL);
+		nb = ft_atol(args[*len]);
 		if (nb > 2147483647 || nb < -2147483648)
 		{
-			if (array)
-				free(array);
-			return (NULL);
+			return (ft_free(1, &array), NULL);
 		}
-		array[i] = nb;
+		array[*len] = nb;
 	}
-	return (array);
+	return (ft_free_matrix(1, &args), array);
 }

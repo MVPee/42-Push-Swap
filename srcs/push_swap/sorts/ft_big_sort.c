@@ -1,39 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_split.c                                    :+:      :+:    :+:   */
+/*   ft_big_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvpee <mvpee@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/22 15:23:11 by mvpee             #+#    #+#             */
-/*   Updated: 2023/12/07 14:51:04 by mvpee            ###   ########.fr       */
+/*   Created: 2023/12/15 11:19:20 by mvpee             #+#    #+#             */
+/*   Updated: 2023/12/15 11:25:08 by mvpee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
+#include "../../../includes/push_swap.h"
 
-void	ft_free_split(unsigned int count, ...)
+void ft_big_sort(t_list **a, t_list **b)
 {
-	va_list	args;
-	void	***array;
-	int		i;
-
-	va_start(args, count);
-	while (count--)
-	{
-		array = va_arg(args, void ***);
-		if (*array)
-		{
-			i = 0;
-			while ((*array)[i])
-			{
-				free((*array)[i]);
-				(*array)[i] = NULL;
-				i++;
-			}
-			free(*array);
-			*array = NULL;
-		}
-	}
-	va_end(args);
+    (void)a;
+    (void)b;
+    return ;
 }
