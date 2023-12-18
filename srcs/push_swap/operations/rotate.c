@@ -6,31 +6,31 @@
 /*   By: mvpee <mvpee@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:42:26 by mvpee             #+#    #+#             */
-/*   Updated: 2023/12/15 13:44:34 by mvpee            ###   ########.fr       */
+/*   Updated: 2023/12/18 15:17:46 by mvpee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/push_swap.h"
 
-void	ra(t_list **a)
+void	ra(t_stack **a)
 {
-	t_list	*first;
-	t_list	*last;
+	t_stack	*first;
+	t_stack	*last;
 
 	if (*a == NULL || (*a)->next == NULL)
 		return ;
 	first = *a;
-	last = ft_lstlast(*a);
+	last = ft_stacklast(*a);
 	*a = first->next;
 	first->next = NULL;
 	last->next = first;
 	ft_printf("ra\n");
 }
 
-void	rra(t_list **a)
+void	rra(t_stack **a)
 {
-	t_list	*last;
-	t_list	*second_last;
+	t_stack	*last;
+	t_stack	*second_last;
 
 	if (*a == NULL || (*a)->next == NULL)
 		return ;

@@ -6,41 +6,48 @@
 /*   By: mvpee <mvpee@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 13:42:15 by mvpee             #+#    #+#             */
-/*   Updated: 2023/12/15 14:08:25 by mvpee            ###   ########.fr       */
+/*   Updated: 2023/12/18 16:32:00 by mvpee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-static int	is_sorted(t_list *a)
+static t_stack	*find_min(t_stack *a)
 {
-	while (a->next != NULL)
+	t_stack	*temp;
+	int		min;
+
+	temp = NULL;
+	min = INT_MAX;
+	while (a)
 	{
-		if (a->content > a->next->content)
-			return (0);
+		if (a->value <= min && a->rank == -1)
+		{
+			min = a->value;
+			temp = a;
+		}
 		a = a->next;
 	}
-	return (1);
+	return (temp);
 }
 
-static void	ft_sort(t_list **a, t_list **b)
+static void	stack_add_rank(t_stack **a)
 {
-	(void)b;
-	if (ft_lstsize(*a) == 2)
-		sa(a);
-	else if (ft_lstsize(*a) == 3)
-		ft_sort_three(a);
-	else if (ft_lstsize(*a) == 4)
-		ft_sort_four(a, b);
-	else if (ft_lstsize(*a) == 5)
-		ft_sort_five(a, b);
-	else
-		radix_sort(a, b);
+	t_stack	*stack;
+	int		count;
+
+	count = 0;
+	stack = find_min(*a);
+	while (stack)
+	{
+		stack->rank = count++;
+		stack = find_min(*a);
+	}
 }
 
-static void	list_clear(t_list **a)
+static void	stack_clear(t_stack **a)
 {
-	t_list	*temp;
+	t_stack	*temp;
 
 	while (*a)
 	{
@@ -50,12 +57,27 @@ static void	list_clear(t_list **a)
 	}
 }
 
+static void	ft_sort(t_stack **a, t_stack **b)
+{
+	(void)b;
+	if (ft_stacksize(*a) == 2)
+		sa(a);
+	else if (ft_stacksize(*a) == 3)
+		ft_sort_three(a);
+	else if (ft_stacksize(*a) == 4)
+		ft_sort_four(a, b);
+	else if (ft_stacksize(*a) == 5)
+		ft_sort_five(a, b);
+	else
+		ft_radix(a, b);
+}
+
 int	main(int ac, char **av)
 {
 	int		*array;
 	int		len;
-	t_list	*a;
-	t_list	*b;
+	t_stack	*a;
+	t_stack	*b;
 
 	a = NULL;
 	b = NULL;
@@ -68,9 +90,9 @@ int	main(int ac, char **av)
 	if (!a)
 		return (ft_free(1, &array), 1);
 	ft_free(1, &array);
+	stack_add_rank(&a);
 	if (!is_sorted(a))
 		ft_sort(&a, &b);
-	list_clear(&a);
-	list_clear(&b);
+	stack_clear(&a);
 	return (0);
 }

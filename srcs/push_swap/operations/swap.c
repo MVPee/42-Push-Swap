@@ -6,16 +6,16 @@
 /*   By: mvpee <mvpee@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:35:53 by mvpee             #+#    #+#             */
-/*   Updated: 2023/12/15 13:44:44 by mvpee            ###   ########.fr       */
+/*   Updated: 2023/12/18 15:06:59 by mvpee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	sa(t_list **a)
+void	sa(t_stack **a)
 {
-	t_list	*first;
-	t_list	*second;
+	t_stack	*first;
+	t_stack	*second;
 
 	if (*a != NULL && (*a)->next != NULL)
 	{
@@ -28,10 +28,10 @@ void	sa(t_list **a)
 	}
 }
 
-void	sb(t_list **b)
+void	sb(t_stack **b)
 {
-	t_list	*first;
-	t_list	*second;
+	t_stack	*first;
+	t_stack	*second;
 
 	if (*b != NULL && (*b)->next != NULL)
 	{

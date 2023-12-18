@@ -6,15 +6,15 @@
 /*   By: mvpee <mvpee@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:57:13 by mvpee             #+#    #+#             */
-/*   Updated: 2023/12/15 13:44:59 by mvpee            ###   ########.fr       */
+/*   Updated: 2023/12/18 15:06:59 by mvpee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/push_swap.h"
 
-void	pa(t_list **a, t_list **b)
+void	pa(t_stack **a, t_stack **b)
 {
-	t_list	*temp;
+	t_stack	*temp;
 
 	if (*b == NULL)
 		return ;
@@ -25,9 +25,9 @@ void	pa(t_list **a, t_list **b)
 	ft_printf("pa\n");
 }
 
-void	pb(t_list **a, t_list **b)
+void	pb(t_stack **a, t_stack **b)
 {
-	t_list	*temp;
+	t_stack	*temp;
 
 	if (*a == NULL)
 		return ;

@@ -6,16 +6,16 @@
 /*   By: mvpee <mvpee@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 09:38:37 by mvpee             #+#    #+#             */
-/*   Updated: 2023/12/15 13:46:23 by mvpee            ###   ########.fr       */
+/*   Updated: 2023/12/18 15:11:40 by mvpee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-t_list	*init_stack(int *array, int len)
+t_stack	*init_stack(int *array, int len)
 {
-	t_list	*a;
-	t_list	*new;
+	t_stack	*a;
+	t_stack	*new;
 	int		i;
 
 	a = NULL;
@@ -23,13 +23,10 @@ t_list	*init_stack(int *array, int len)
 	i = 0;
 	while (i < len)
 	{
-		new = ft_lstnew((void *)(intptr_t)array[i]);
+		new = ft_stacknew(array[i]);
 		if (!new)
-		{
-			ft_lstclear(&a, free);
-			return (NULL);
-		}
-		ft_lstadd_back(&a, new);
+			return (NULL); //add clear
+		ft_stackadd_back(&a, new);
 		i++;
 	}
 	return (a);

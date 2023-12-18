@@ -6,15 +6,33 @@
 /*   By: mvpee <mvpee@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 11:19:20 by mvpee             #+#    #+#             */
-/*   Updated: 2023/12/15 14:08:24 by mvpee            ###   ########.fr       */
+/*   Updated: 2023/12/18 16:15:11 by mvpee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/push_swap.h"
 
-void	radix_sort(t_list **a, t_list **b)
+void	ft_radix(t_stack **a, t_stack **b)
 {
-	(void)a;
-	(void)b;
-	return ;
+	int	i;
+	int	j;
+	int	size;
+
+	size = ft_stacksize(*a);
+	i = 0;
+	while (!is_sorted(*a))
+	{
+		j = 0;
+		while (j < size)
+		{
+			if ((((*a)->rank >> i) & 1) == 0)
+				pb(a, b);
+			else
+				ra(a);
+			j++;
+		}
+		while (ft_stacksize(*b) > 0)
+			pa(a, b);
+		i++;
+	}
 }

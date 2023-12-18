@@ -6,7 +6,7 @@
 #    By: mvpee <mvpee@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/22 13:41:01 by mvpee             #+#    #+#              #
-#    Updated: 2023/12/15 14:05:56 by mvpee            ###   ########.fr        #
+#    Updated: 2023/12/18 15:12:00 by mvpee            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ SRCS = 	srcs/push_swap/main.c \
 		srcs/push_swap/sorts/ft_radix.c \
 		srcs/push_swap/operations/swap.c \
 		srcs/push_swap/operations/rotate.c \
-		srcs/push_swap/operations/push.c
+		srcs/push_swap/operations/push.c \
+		srcs/push_swap/stacks/stacks_utils.c \
 
 OBJS = $(SRCS:.c=.o)
 
