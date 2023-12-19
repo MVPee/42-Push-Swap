@@ -6,7 +6,7 @@
 /*   By: mvpee <mvpee@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:42:26 by mvpee             #+#    #+#             */
-/*   Updated: 2023/12/18 15:17:46 by mvpee            ###   ########.fr       */
+/*   Updated: 2023/12/19 15:43:58 by mvpee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,21 @@ void	ra(t_stack **a)
 	first = *a;
 	last = ft_stacklast(*a);
 	*a = first->next;
+	first->next = NULL;
+	last->next = first;
+	ft_printf("ra\n");
+}
+
+void	rb(t_stack **b)
+{
+	t_stack	*first;
+	t_stack	*last;
+
+	if (*b == NULL || (*b)->next == NULL)
+		return ;
+	first = *b;
+	last = ft_stacklast(*b);
+	*b = first->next;
 	first->next = NULL;
 	last->next = first;
 	ft_printf("ra\n");

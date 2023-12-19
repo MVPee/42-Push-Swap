@@ -6,7 +6,7 @@
 /*   By: mvpee <mvpee@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 13:42:15 by mvpee             #+#    #+#             */
-/*   Updated: 2023/12/18 16:32:00 by mvpee            ###   ########.fr       */
+/*   Updated: 2023/12/19 15:40:15 by mvpee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,19 +57,16 @@ static void	stack_clear(t_stack **a)
 	}
 }
 
-static void	ft_sort(t_stack **a, t_stack **b)
+static void	sort(t_stack **a, t_stack **b)
 {
-	(void)b;
 	if (ft_stacksize(*a) == 2)
 		sa(a);
 	else if (ft_stacksize(*a) == 3)
 		ft_sort_three(a);
-	else if (ft_stacksize(*a) == 4)
-		ft_sort_four(a, b);
-	else if (ft_stacksize(*a) == 5)
-		ft_sort_five(a, b);
+	else if (ft_stacksize(*a) <= 5)
+		ft_sort(a, b);
 	else
-		ft_radix(a, b);
+		ft_sort(a, b);
 }
 
 int	main(int ac, char **av)
@@ -88,11 +85,11 @@ int	main(int ac, char **av)
 		return (ft_printf_fd(2, "Error\n"), 1);
 	a = init_stack(array, len);
 	if (!a)
-		return (ft_free(1, &array), 1);
+		return (stack_clear(&a), ft_free(1, &array), 1);
 	ft_free(1, &array);
 	stack_add_rank(&a);
 	if (!is_sorted(a))
-		ft_sort(&a, &b);
+		sort(&a, &b);
 	stack_clear(&a);
 	return (0);
 }

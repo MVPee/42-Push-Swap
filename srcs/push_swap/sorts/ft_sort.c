@@ -1,32 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_four.c                                     :+:      :+:    :+:   */
+/*   ft_sort.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvpee <mvpee@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/15 11:19:22 by mvpee             #+#    #+#             */
-/*   Updated: 2023/12/19 09:16:52 by mvpee            ###   ########.fr       */
+/*   Created: 2023/12/15 11:18:50 by mvpee             #+#    #+#             */
+/*   Updated: 2023/12/19 15:40:47 by mvpee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/push_swap.h"
 
-void	ft_sort_four(t_stack **a, t_stack **b)
+static void	ft_push_to_b(t_stack **a, t_stack **b)
 {
-	t_stack *temp;
-	unsigned int count;
-	
-	temp = *a;
-	count = 0;
-	while(temp->rank != 0)
+	t_stack	*temp;
+	int		i;
+	int		pos;
+
+	i = 0;
+	while (ft_stacksize(*a) > 3)
 	{
-		count++;
-		temp = temp->next;
+		temp = *a;
+		pos = 0;
+		while (temp && temp->rank != i)
+		{
+			pos++;
+			temp = temp->next;
+		}
+		if ((*a)->rank == i)
+		{
+			pb(a, b);
+			i++;
+		}
+		else if (pos <= ft_stacksize(*a) / 2)
+			ra(a);
+		else
+			rra(a);
 	}
-	while(count--)
-		ra(a);
-	pb(a, b);
+}
+
+void	ft_sort(t_stack **a, t_stack **b)
+{
+	ft_push_to_b(a, b);
 	ft_sort_three(a);
-	pa(a, b);
+	while (ft_stacksize(*b) != 0)
+		pa(a, b);
 }

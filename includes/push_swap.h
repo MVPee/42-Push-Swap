@@ -6,7 +6,7 @@
 /*   By: mvpee <mvpee@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 13:39:59 by mvpee             #+#    #+#             */
-/*   Updated: 2023/12/18 16:06:23 by mvpee            ###   ########.fr       */
+/*   Updated: 2023/12/19 15:43:53 by mvpee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,7 @@ int					is_sorted(t_stack *a);
 
 /* Sorts methode */
 void				ft_sort_three(t_stack **a);
-void				ft_sort_four(t_stack **a, t_stack **b);
-void				ft_sort_five(t_stack **a, t_stack **b);
+void				ft_sort(t_stack **a, t_stack **b);
 void				ft_radix(t_stack **stack_a, t_stack **stack_b);
 
 /* Operations methode */
@@ -48,6 +47,7 @@ void				sb(t_stack **b);
 // Rotate
 void				ra(t_stack **a);
 void				rra(t_stack **a);
+void				rb(t_stack **b);
 // Push
 void				pa(t_stack **a, t_stack **b);
 void				pb(t_stack **a, t_stack **b);

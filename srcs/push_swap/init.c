@@ -6,7 +6,7 @@
 /*   By: mvpee <mvpee@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 09:38:37 by mvpee             #+#    #+#             */
-/*   Updated: 2023/12/18 15:11:40 by mvpee            ###   ########.fr       */
+/*   Updated: 2023/12/19 15:42:46 by mvpee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_stack	*init_stack(int *array, int len)
 	{
 		new = ft_stacknew(array[i]);
 		if (!new)
-			return (NULL); //add clear
+			return (NULL);
 		ft_stackadd_back(&a, new);
 		i++;
 	}
