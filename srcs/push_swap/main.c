@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvpee <mvpee@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mvan-pee <mvan-pee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 13:42:15 by mvpee             #+#    #+#             */
-/*   Updated: 2023/12/19 15:40:15 by mvpee            ###   ########.fr       */
+/*   Updated: 2023/12/20 10:36:09 by mvan-pee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static void	sort(t_stack **a, t_stack **b)
 	else if (ft_stacksize(*a) <= 5)
 		ft_sort(a, b);
 	else
-		ft_sort(a, b);
+		ft_radix(a, b);
 }
 
 int	main(int ac, char **av)
@@ -79,10 +79,10 @@ int	main(int ac, char **av)
 	a = NULL;
 	b = NULL;
 	if (ac < 2)
-		return (1);
+		return (0);
 	array = args_check(av + 1, &len);
 	if (!array)
-		return (ft_printf_fd(2, "Error\n"), 1);
+		return (ft_printf_fd(2, "Error\n"), 0);
 	a = init_stack(array, len);
 	if (!a)
 		return (stack_clear(&a), ft_free(1, &array), 1);
