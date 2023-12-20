@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mvpee <mvpee@student.42.fr>                +#+  +:+       +#+         #
+#    By: mvan-pee <mvan-pee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/22 13:41:01 by mvpee             #+#    #+#              #
-#    Updated: 2023/12/19 15:43:09 by mvpee            ###   ########.fr        #
+#    Updated: 2023/12/20 10:29:55 by mvan-pee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,7 @@ LIBFT = srcs/libft
 SRCS = 	srcs/push_swap/main.c \
 		srcs/push_swap/arg_check.c \
 		srcs/push_swap/init.c \
-		srcs/push_swap/sorts/ft_sort_three.c \
-		srcs/push_swap/sorts/ft_sort.c \
-		srcs/push_swap/sorts/ft_radix.c \
+		srcs/push_swap/ft_sort.c \
 		srcs/push_swap/operations/swap.c \
 		srcs/push_swap/operations/rotate.c \
 		srcs/push_swap/operations/push.c \
